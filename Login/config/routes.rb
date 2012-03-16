@@ -1,4 +1,25 @@
 Login::Application.routes.draw do
+
+  resources :line_items
+
+  resources :orders
+
+  get 'admin' => 'admin#index'
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
+  get "admin/index"
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   resources :users
 
   # The priority is based upon order of creation:
